@@ -16,8 +16,10 @@
         };
 
         setInterval(function () {
-            location.reload();
-        }, 60000);
+            var image = document.getElementById('image1');
+            var timestamp = new Date().getTime();  // 現在のタイムスタンプ
+            image.src = "images/render_image.png?timestamp=" + timestamp;
+        }, 60000);  // 画像だけを1分ごとに更新
     </script>
 </head>
 
