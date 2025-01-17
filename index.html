@@ -12,21 +12,17 @@
         <!-- 初期の画像表示 -->
         <img id="image1" src="images/render_image.png" alt="レンダリング画像" width="300">
         <script>
-            // 画像を定期的に更新する関数
             function updateImage() {
                 const imageElement = document.getElementById('image1');
-                const timestamp = new Date().getTime();  // 現在のタイムスタンプ（ミリ秒）
-
-                // 新しい画像URLを設定（キャッシュを避けるためタイムスタンプを追加）
-                imageElement.src = 'render_image.png?timestamp=' + timestamp;
+                const basePath = '/images/render_image.png';
+                const timestamp = new Date().getTime();      // 現在のタイムスタンプ
+                imageElement.src = basePath + '?timestamp=' + timestamp;
             }
 
-            // 最初に画像を1回更新
             updateImage();
-
-            // 1分ごとに画像を更新
-            setInterval(updateImage, 60000);  // 60000ms = 1分
+            setInterval(updateImage, 60000);  // 1分ごとに更新
         </script>
+
     </div>
 </body>
 
