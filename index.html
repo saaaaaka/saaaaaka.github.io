@@ -4,12 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>画像表示</title>
+    <script>
+        // 画像にタイムスタンプを追加して、キャッシュを回避
+        window.onload = function () {
+            var image = document.getElementById('image1');
+            var timestamp = new Date().getTime();  // 現在のタイムスタンプ
+            image.src = "images/render_image.png?timestamp=" + timestamp;
+        };
+
+        // 5分ごとにリロード
+        setInterval(function () {
+            location.reload();
+        }, 300000);
+    </script>
 </head>
 
 <body>
     <h1>レンダリングされた画像</h1>
     <div>
-        <img id="image1" src="images\render_image.png" alt="レンダリング画像" width="300">
+        <img id="image1" src="images/render_image.png" alt="レンダリング画像" width="300">
     </div>
 </body>
 
