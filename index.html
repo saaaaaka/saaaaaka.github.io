@@ -10,9 +10,11 @@
             var image = document.getElementById('image1');
             var timestamp = new Date().getTime();  // 現在のタイムスタンプ
             image.src = "images/render_image.png?timestamp=" + timestamp;
+            image.onload = function () {
+                console.log("画像の読み込みが完了しました");
+            };
         };
 
-        // 1分ごとにリロード
         setInterval(function () {
             location.reload();
         }, 60000);
