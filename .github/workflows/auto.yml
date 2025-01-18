@@ -24,7 +24,7 @@ jobs:
       - name: Move the rendered image to the repository
         run: |
           # Blenderでレンダリングした画像をリポジトリの images フォルダに移動
-          mv /"C:\Users\skzz5\OneDrive\デスクトップ\sotsuron\3d1\saaaaaka.github.io\images"/render_image.png ./images/render_image.png  # 正しいパスに修正
+          mv r"C:\Users\skzz5\OneDrive\デスクトップ\sotsuron\3d1\saaaaaka.github.io\images" render_image.png ./images/render_image.png  # 正しいパスに修正
           git status  # 変更が反映されたか確認
 
       - name: Commit changes
