@@ -35,7 +35,7 @@ jobs:
            git remote set-url origin https://<TOKEN>@github.com/saaaaaka/https://github.com/saaaaaka/saaaaaka.github.io
            git push origin main
         env:
-            TOKEN: ${{ ACTIONS_PAT }}
+            TOKEN: ${{ secrets.ACTIONS_PAT }}
 
 
 
