@@ -15,13 +15,13 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "Your Name"  # Git ユーザー名を設定
-          git config user.email "your-email@example.com"  # Git メールアドレスを設定
+          git config user.name "saaaaaka"  # Git ユーザー名を設定
+          git config user.email "kka449783@gmail.com"  # Git メールアドレスを設定
 
       - name: Make changes (example)
         run: |
-          echo "Some changes" >> example.txt  # 変更を加える例
-          git add example.txt  # 変更を追加
+          echo "Some changes" >> images/render_image.png # 変更を加える
+          git add images/render_image.png  # 変更を追加
 
       - name: Commit changes
         run: |
