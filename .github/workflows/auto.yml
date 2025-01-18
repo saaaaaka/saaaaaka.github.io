@@ -1,9 +1,8 @@
-name: Auto Commit and Push
+name: Auto Add and Commit and Push
 
 on:
   push:
-    branches:
-      - main  # main ブランチにプッシュされた際にトリガーされます
+    branches: [ main ] # main ブランチにプッシュされた際にトリガーされます
 
 jobs:
   auto_commit_push:
