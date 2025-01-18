@@ -16,3 +16,7 @@ jobs:
         run: |
           git config user.name "saaaaaka"  # Gitユーザー名を設定
           git config user.email "kka449783@gmail.com"  # Gitメールアドレスを設定
+
+      - name: Verify the current state
+        run: |
+          git status  # 現在の状態を確認 
