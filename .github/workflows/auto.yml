@@ -15,20 +15,27 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "Your Name"  # Git ユーザー名を設定
-          git config user.email "your-email@example.com"  # Git メールアドレスを設定
+          git config user.name "saaaaaka"  # Git ユーザー名を設定
+          git config user.email "kka449783@gmail.com"  # Git メールアドレスを設定
 
       - name: Make changes (example)
         run: |
-          echo "Some changes" >> example.txt  # 変更を加える例
-          git add example.txt  # 変更を追加
+          echo "Some changes" >> images/render_image.png # 変更を加える
+          git add images/render_image.png  # 変更を追加
 
       - name: Commit changes
         run: |
-          git commit -m "Automated commit: Added example.txt" || echo "No changes to commit"  # 変更があればコミット
+           git commit -m "Automated commit: Added \"images/render_image.png\"" || echo "No changes to commit"
 
-      - name: Push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions トークンを使用して認証
+
+      - name: Push changes to repository
         run: |
-          git push origin main  # リモートの main ブランチにプッシュ
+           git config user.name "saaaaaka[bot]"
+           git config user.email "kka449783[bot]@gmail.com"
+           git remote set-url origin https://github.com/saaaaaka/saaaaaka.github.io
+           git push origin main
+        env:
+            TOKEN: ${{ secrets.ACTIONS_PAT }}
+
+
+
