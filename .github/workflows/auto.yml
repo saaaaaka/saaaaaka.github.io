@@ -35,6 +35,3 @@ jobs:
            git push origin main
         env:
             TOKEN: ${{ secrets.ACTIONS_PAT }}
-
-
-
