@@ -25,7 +25,8 @@ jobs:
 
       - name: Commit changes
         run: |
-           git commit -m "Automated commit: Added "images/render_image.png" || echo "No changes to commit"  # 変更があればコミット
+           git commit -m "Automated commit: Added \"images/render_image.png\"" || echo "No changes to commit"
+
 
       - name: Push changes
         env:
