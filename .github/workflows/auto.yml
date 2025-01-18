@@ -16,26 +16,3 @@ jobs:
         run: |
           git config user.name "saaaaaka"  # Gitユーザー名を設定
           git config user.email "kka449783@gmail.com"  # Gitメールアドレスを設定
-
-      - name: Verify the current state
-        run: |
-          git status  # 現在の状態を確認
-
-      - name: Move the rendered image to the repository
-        run: |
-          # Blenderでレンダリングした画像をリポジトリの images フォルダに移動
-          mv C:\Users\skzz5\OneDrive\デスクトップ\sotsuron\3d1\saaaaaka.github.io\images render_image.png. images/render_image.png  # 正しいパスに修正
-          git status  # 変更が反映されたか確認
-
-      - name: Commit changes
-        run: |
-          git commit -m "Automated commit: Added new render_image.png" || echo "No changes to commit"
-
-      - name: Push changes to repository
-        run: |
-           git config user.name "saaaaaka[bot]"
-           git config user.email "kka449783[bot]@gmail.com"
-           git remote set-url origin https://github.com/saaaaaka/saaaaaka.github.io
-           git push origin main
-        env:
-            TOKEN: ${{ secrets.ACTIONS_PAT }}  # GitHubのアクセストークンを使用
