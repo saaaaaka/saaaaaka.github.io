@@ -24,7 +24,7 @@ jobs:
       - name: Copy the new rendered image
         run: |
           # Blenderでレンダリングされた画像ファイルをリポジトリの images フォルダにコピー
-          mv /path/to/your/render_image.png ./images/render_image.png
+          mv "C:\Users\skzz5\OneDrive\デスクトップ\sotsuron\3d1\saaaaaka.github.io\images"
           git status  # 変更が反映されたか確認
 
       - name: Commit changes
