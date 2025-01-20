@@ -1,22 +1,24 @@
-name: Auto Add and Commit and Push
+name: Auto Commit and Push
 
 on:
-  push:
-    branches: [ main ]  # mainブランチにプッシュされた際にトリガーされます
+  schedule:
+    - cron: "*/1 * * * *"  # 10分ごとに実行
 
 jobs:
-  auto_commit_push:
-    runs-on: ubuntu-latest  # Ubuntu環境で実行
+  auto-commit-and-push:
+    runs-on: ubuntu-latest
+    enviroment: update
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  # リポジトリのコードをチェックアウト
+      # リポジトリのチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Set up Git
+      # Git 設定
+      - name: Upgate Data
         run: |
           git config user.name "saaaaaka"  # Gitユーザー名を設定
           git config user.email "kka449783@gmail.com"  # Gitメールアドレスを設定
-
-      - name: Verify the current state
-        run: |
-          git status  # 現在の状態を確認 
+          git add images/render_image.png # 任意のファイルに変更を加える
+          git commit -m "Automated commit: Changes made by GitHub Actions" || echo "No changes to commit
+          git push origin main
