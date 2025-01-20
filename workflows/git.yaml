@@ -2,25 +2,37 @@ name: Auto Commit and Push
 
 on:
   schedule:
-    - cron: :*/10 * * * *
+    - cron: "*/1 * * * *"  # 10分ごとに実行
 
 jobs:
+  auto-commit-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Git 設定
       - name: Set up Git
         run: |
-          git config user.name "saaaaaka"  # Git ユーザー名を設定
-          git config user.email "kka449783@gmail.com"  # Git メールアドレスを設定
+          git config user.name "saaaaaka"  # Gitユーザー名を設定
+          git config user.email "kka449783@gmail.com"  # Gitメールアドレスを設定
 
+      # 変更を加える
       - name: Make changes (example)
         run: |
-          echo "Some changes" >> images/render_image.png # 変更を加える
-          git add images/render_image.png  # 変更を追加
+          echo "Some changes" >> images/render_image.png # 任意のファイルに変更を加える
 
+      # 変更をコミット
       - name: Commit changes
         run: |
-          git commit -m "Automated commit: Added example.txt" || echo "No changes to commit"  # 変更があればコミット
+          git add .  # 変更をすべて追加
+          git commit -m "Automated commit: Changes made by GitHub Actions" || echo "No changes to commit"
 
+      # 変更をプッシュ
       - name: Push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions トークンを使用して認証
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions トークンで認証
         run: |
-          git push origin main  # リモートの main ブランチにプッシュ
+          git push origin main
