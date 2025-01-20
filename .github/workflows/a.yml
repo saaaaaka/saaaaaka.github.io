@@ -1,1 +1,23 @@
+name: Auto Commit and Push
 
+on:
+  schedule:
+    - cron: "3 * * * *"  # 毎分実行
+
+jobs:
+  auto-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "saaaaaka"
+          git config --global user.email "kka449783@gmail.com"
+
+      - name: Commit and Push Changes
+        run: |
+          git add images/render_image.png
+          git commit -m "Auto commit from GitHub Actions"
+          git push -u origin main
