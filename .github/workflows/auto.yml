@@ -2,7 +2,7 @@ name: Auto Commit and Push
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # 10分ごとに実行
+    - cron: "＊/1 ＊ ＊ ＊ ＊"  # 10分ごとに実行
 
 jobs:
   auto-commit-and-push:
